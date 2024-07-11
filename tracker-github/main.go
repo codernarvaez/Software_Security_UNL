@@ -9,18 +9,16 @@ import (
 )
 
 func postHandler(w http.ResponseWriter, r *http.Request) {
-	fmt.Println("Received a POST request!")
-
 	defer r.Body.Close()
 
 	body, err := io.ReadAll(r.Body)
+	fmt.Printf(string(body))
 	if err != nil {
 		fmt.Println("Error reading the request")
 
 		return
 	}
-
-	fmt.Printf(string(body))
+	fmt.Println("Received POST request!")
 }
 
 func main() {
